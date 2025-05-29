@@ -1,128 +1,110 @@
-/**
- * uaplus.css version 0.0.1
- */
 *,
-*::after,
-*::before {
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
-:focus-visible {
-  outline-offset: 3px;
+:where([hidden]:not([hidden="until-found"])) {
+  display: none !important;
 }
 :where(html) {
   -webkit-text-size-adjust: none;
-  text-size-adjust: none;
-}
-:where(html) {
+  color-scheme: dark light;
+  tab-size: 2;
+  scrollbar-gutter: stable;
+  interpolate-size: allow-keywords;
   line-height: 1.5;
 }
-:where(html) {
-  scrollbar-gutter: stable;
+:where(html:has(dialog:modal[open])) {
+  overflow: clip;
 }
-:where(h1) {
-  font-size: 2em;
-  margin-block: 0.67em;
-}
-:where(abbr[title]) {
-  cursor: help;
-  text-decoration-line: underline;
-  text-decoration-style: dotted;
-}
-@media (forced-colors: active) {
-  mark {
-    color: HighlightText;
-    background-color: Highlight;
+@media (prefers-reduced-motion: no-preference) {
+  :where(html:focus-within) {
+    scroll-behavior: smooth;
   }
 }
-:where(del, ins, s)::before,
-:where(del, ins, s)::after {
-  clip-path: inset(100%);
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  content: "test";
+:where(body) {
+  line-height: inherit;
+  font-family: system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
-:where(s)::before {
-  content: "stricken text start ";
+:where(button) {
+  all: unset;
 }
-:where(s)::after {
-  content: " stricken text end";
+:where(input, button, textarea, select) {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  word-spacing: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
 }
-:where(del)::before {
-  content: "deletion start ";
+:where(textarea) {
+  resize: vertical;
+  resize: block;
 }
-:where(del)::after {
-  content: " deletion end";
+:where(button, label, select, summary, [role="button"], [role="option"]) {
+  cursor: pointer;
 }
-:where(ins)::before {
-  content: "insertion start ";
+:where(:disabled, label:has(> :disabled, + disabled)) {
+  cursor: not-allowed;
 }
-:where(ins)::after {
-  content: " insertion end";
+:where(a) {
+  color: inherit;
+  text-underline-offset: 0.2ex;
 }
-:where(audio, iframe, img, svg, video) {
-  max-block-size: 100%;
-  max-inline-size: 100%;
+:where(ul, ol) {
+  list-style: none;
 }
-:where(fieldset) {
-  min-inline-size: 0;
-}
-:where(label):has(+ :where(textarea, input, select)) {
+:where(img, svg, video, canvas, audio, iframe, embed, object) {
   display: block;
 }
-:where(textarea:not([rows])) {
-  min-block-size: 6em;
+:where(img, picture, svg, video) {
+  max-inline-size: 100%;
+  block-size: auto;
 }
-:where(button, input, select, textarea) {
-  font-family: inherit;
-  font-size: inherit;
+:where(p, h1, h2, h3, h4, h5, h6) {
+  overflow-wrap: break-word;
 }
-:where([type="search"]) {
-  -webkit-appearance: textfield;
+:where(h1, h2, h3) {
+  line-height: calc(1em + 0.5rem);
+  text-wrap: balance;
 }
-@supports (-webkit-touch-callout: none) {
-  :where([type="search"]) {
-    border: 1px solid -apple-system-secondary-label;
-    background-color: canvas;
-  }
+:where(hr) {
+  border: none;
+  border-block-start: 1px solid;
+  color: inherit;
+  block-size: 0;
+  overflow: visible;
 }
-:where([type="tel"], [type="url"], [type="email"], [type="number"]):not(
-    :placeholder-shown
-  ) {
-  direction: ltr;
+:where(dialog, [popover]) {
+  border: none;
+  background: none;
+  color: inherit;
+  inset: unset;
+  max-width: unset;
+  max-height: unset;
+  overflow: unset;
 }
-:where(table) {
-  border-collapse: collapse;
-  border: 1px solid;
-}
-:where(th, td) {
-  border: 1px solid;
-  padding: 0.25em 0.5em;
-}
-:where(dialog)::backdrop {
-  background: oklch(0% 0 0 / 0.3);
-}
-:where(dialog),
-:where(dialog)::backdrop {
-  opacity: 0;
-  transition:
-    opacity 300ms ease-out,
-    display 300ms allow-discrete,
-    overlay 300ms allow-discrete;
-}
-:where(dialog[open]),
-:where(dialog[open])::backdrop {
-  opacity: 1;
-}
-@starting-style {
-  :where(dialog[open]),
-  :where(dialog[open])::backdrop {
-    opacity: 0;
-  }
-}
-[hidden]:not([hidden="until-found"]) {
+:where(dialog:not([open], [popover]), [popover]:not(:popover-open)) {
   display: none !important;
+}
+:where(:focus-visible) {
+  outline: 3px solid CanvasText;
+  box-shadow: 0 0 0 5px Canvas;
+  outline-offset: 1px;
+}
+:where(:focus-visible, :target) {
+  scroll-margin-block: 8vh;
+}
+:where(.visually-hidden:not(:focus-within, :active)) {
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  user-select: none !important;
 }
