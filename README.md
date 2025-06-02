@@ -1,10 +1,40 @@
-# 家計簿アプリ 処理ロジック
+# 家計簿っぽいもの
 
 ## 作成するもの
 
-ブラウザからの入力によって **用途（ジャンル）** と **金額** を Google スプレッドシートに登録できる家計簿アプリのようなもの。スマートフォンやPCなどから **出先で簡単に登録・確認できる** ことを目的とする。
+ブラウザからの入力によって **用途（ジャンル）** と **金額** を Google スプレッドシートに登録できる家計簿アプリのようなもの。主にスマートフォンから **出先で簡単に登録できる** ことを目的とする。
+追々、ブラウザ側からの確認や削除は考える。
 
 ---
+
+## Development
+
+### プロジェクトの立ち上げ
+
+1. 'npm run dev' コマンドでプロジェクトを立ち上げます。
+
+```sh
+% npm run dev
+
+> money-log@0.0.0 dev
+> vite
+
+Port 5173 is in use, trying another one...
+Port 5174 is in use, trying another one...
+
+  VITE v6.3.5  ready in 103 ms
+
+  ➜  Local:   http://localhost:5175/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+```
+
+2. `http://localhost:5175/` にアクセスします。
+
+
+---
+
+## 処理の想定
 
 ## 1. 新規ジャンルの登録
 
